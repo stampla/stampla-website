@@ -1,0 +1,209 @@
+/* Stampla design tokens — the desktop app's palette, on the web.
+   Graphite ground, safelight-amber accent, system fonts only. */
+
+:root {
+  --bg: #16181d;
+  --panel: #1e2128;
+  --panel-2: #23262e;
+  --line: #2e323c;
+  --text: #e9e7e2;
+  --muted: #9a9da6;
+  --faint: #7a7d86;
+  --amber: #e8a33d;
+  --amber-ink: #241a08;
+  --ok: #63b984;
+
+  --sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --measure: 66ch;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { color-scheme: dark; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+
+.skip {
+  position: absolute;
+  left: -100vw;
+  top: 0;
+  background: var(--amber);
+  color: var(--amber-ink);
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 6px 0;
+  font-weight: 650;
+}
+.skip:focus { left: 0; z-index: 10; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+a { color: var(--amber); text-decoration-color: color-mix(in srgb, var(--amber) 45%, transparent); }
+a:hover { text-decoration-color: var(--amber); }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; border-radius: 2px; }
+
+code, pre, .mono { font-family: var(--mono); }
+code { font-size: 0.9em; }
+
+.wrap { max-width: 62rem; margin: 0 auto; padding: 0 var(--gutter); }
+
+/* header */
+.site-header { border-bottom: 1px solid var(--line); }
+.site-header .wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding-top: 1.1rem;
+  padding-bottom: 1.1rem;
+}
+.wordmark {
+  font-family: var(--mono);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+.wordmark .tick { color: var(--amber); }
+.site-nav { margin-left: auto; display: flex; gap: 1.25rem; }
+.site-nav a { color: var(--muted); text-decoration: none; font-size: 0.95rem; }
+.site-nav a:hover, .site-nav a:focus-visible { color: var(--text); }
+
+/* hero */
+.hero { padding: clamp(3rem, 9vw, 5.5rem) 0 clamp(2.5rem, 6vw, 4rem); }
+.hero h1 {
+  font-size: clamp(1.7rem, 4.2vw, 2.6rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  font-weight: 750;
+  max-width: 24ch;
+  text-wrap: balance;
+}
+.hero .lede {
+  margin-top: 1.1rem;
+  color: var(--muted);
+  max-width: var(--measure);
+  font-size: 1.125rem;
+}
+.hero .lede strong { color: var(--text); }
+
+/* the name diagram */
+.diagram {
+  margin-top: 2.2rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1.4rem 1.6rem 1.1rem;
+  display: inline-block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+.diagram .name {
+  font-family: var(--mono);
+  font-size: clamp(1rem, 3vw, 1.45rem);
+  white-space: nowrap;
+}
+.diagram .t { color: var(--amber); border-bottom: 2px solid var(--amber); padding-bottom: 0.35rem; }
+.diagram .h { color: var(--ok); border-bottom: 2px solid var(--ok); padding-bottom: 0.35rem; }
+.diagram .x { color: var(--faint); }
+.diagram .legend {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 0.6rem;
+  font-size: 0.8rem;
+  font-family: var(--mono);
+}
+.diagram .legend .t { border: 0; padding: 0; }
+.diagram .legend .h { border: 0; padding: 0; }
+
+/* sections */
+section { padding: clamp(2rem, 5vw, 3.25rem) 0; }
+section + section { border-top: 1px solid var(--line); }
+h2 {
+  font-size: 1.35rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.4rem;
+}
+.kicker {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--amber);
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+/* property cards */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1.3rem 1.4rem;
+}
+.card h3 { font-size: 1.02rem; margin-bottom: 0.5rem; }
+.card p { color: var(--muted); font-size: 0.95rem; }
+.card p code { color: var(--text); }
+.card .more { display: inline-block; margin-top: 0.7rem; font-size: 0.9rem; }
+
+/* install / example */
+.snippet {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1.1rem 1.4rem;
+  overflow-x: auto;
+}
+.snippet code, .snippet pre { font-size: 0.95rem; line-height: 1.7; }
+.snippet .prompt { color: var(--faint); user-select: none; }
+.snippet .arr { color: var(--faint); }
+.snippet .new { color: var(--amber); }
+.aside { color: var(--faint); font-size: 0.9rem; margin-top: 0.8rem; }
+
+.example-rows { display: grid; gap: 0.15rem; }
+
+/* prose (docs and body copy) */
+.prose { max-width: var(--measure); }
+.prose p + p { margin-top: 1rem; }
+.prose ul { margin: 1rem 0 1rem 1.25rem; }
+.prose li + li { margin-top: 0.5rem; }
+.prose h2 { margin-top: 2.2rem; }
+.prose h2:first-child { margin-top: 0; }
+
+/* footer */
+.site-footer { border-top: 1px solid var(--line); margin-top: 2rem; }
+.site-footer .wrap {
+  padding-top: 1.4rem;
+  padding-bottom: 2.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.5rem;
+  color: var(--faint);
+  font-size: 0.88rem;
+}
+.site-footer a { color: var(--muted); }
+
+/* 404 */
+.error-page { padding: 6rem 0; text-align: left; }
+.error-page .mono { color: var(--faint); }
+
+@media (prefers-reduced-motion: no-preference) {
+  a, .site-nav a { transition: color 120ms ease, text-decoration-color 120ms ease; }
+}

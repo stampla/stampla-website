@@ -3,6 +3,10 @@ languageCode = 'en'
 title = 'Stampla'
 timeZone = 'Europe/Warsaw'
 enableRobotsTXT = true
+disableKinds = ['taxonomy', 'term', 'rss']
+
+[params]
+  description = 'Deterministic, verifiable naming for photo and video archives.'
 
 [minify]
   minifyOutput = true
