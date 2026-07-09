@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Diagram: Lightroom Classic collections published into a plain folder tree">
+  <rect width="640" height="360" fill="#1e2128"/>
+  <g font-family="ui-monospace, Menlo, monospace" font-size="15">
+    <rect x="42" y="72" width="220" height="216" rx="10" fill="#23262e" stroke="#2e323c"/>
+    <text x="66" y="108" fill="#e9e7e2" font-weight="700">Lightroom Classic</text>
+    <text x="66" y="140" fill="#9a9da6">▸ Collections</text>
+    <text x="82" y="168" fill="#9a9da6">▸ Portfolio</text>
+    <text x="82" y="196" fill="#9a9da6">▸ Family album</text>
+    <text x="66" y="240" fill="#7a7d86">Publish Services</text>
+    <text x="66" y="266" fill="#e8a33d">● Folder tree</text>
+    <text x="300" y="186" fill="#e8a33d" font-size="24">→</text>
+    <rect x="352" y="72" width="246" height="216" rx="10" fill="#23262e" stroke="#2e323c"/>
+    <text x="376" y="108" fill="#e9e7e2" font-weight="700">Published/</text>
+    <text x="392" y="140" fill="#9a9da6">2026/</text>
+    <text x="408" y="168" fill="#9a9da6">2026-07/</text>
+    <text x="424" y="196" fill="#e8a33d" font-size="13">20260703_150727_9b677b64_nef.jpg</text>
+    <text x="424" y="224" fill="#7a7d86" font-size="13">20260703_151204_2af18c05_nef.jpg</text>
+    <text x="376" y="266" fill="#7a7d86" font-size="13">plain files — no app needed to read it</text>
+  </g>
+</svg>

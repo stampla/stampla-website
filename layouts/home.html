@@ -4,10 +4,48 @@
   <section class="hero">
     <h1>{{ .Params.tagline }}</h1>
     <p class="lede">{{ .Params.lede | markdownify }}</p>
-    <figure class="diagram" role="img" aria-label="Example archive filename: a capture timestamp, then a slice of the content hash">
+    <figure class="diagram" role="img" aria-label="Example archive filename: a capture timestamp, then a fingerprint of the content">
       <div class="name"><span class="t">20260703_150727</span><span class="x">_</span><span class="h">9b677b64</span><span class="x">.nef</span></div>
-      <div class="legend"><span class="t">capture time</span><span class="h">content hash</span></div>
+      <div class="legend"><span class="t">capture time</span><span class="h">content fingerprint</span></div>
     </figure>
+  </section>
+
+  <section aria-labelledby="desktop">
+    <span class="kicker">The desktop app</span>
+    <h2 id="desktop">From memory card to verified archive</h2>
+    <p class="prose section-intro">{{ .Params.desktop_intro }}</p>
+    <div class="shots">
+      {{ range .Params.screenshots }}
+      <figure class="shot">
+        <img src="{{ .src }}" alt="{{ .alt }}" loading="lazy" width="1180" height="620">
+        <figcaption>{{ .caption }}</figcaption>
+      </figure>
+      {{ end }}
+    </div>
+    <ul class="feature-list">
+      {{ range .Params.desktop_features }}
+      <li>{{ . | markdownify }}</li>
+      {{ end }}
+    </ul>
+    <p class="aside">
+      Free and open source —
+      <a href="https://github.com/stampla/stampla-desktop">source and builds on GitHub</a>.
+    </p>
+  </section>
+
+  <section aria-labelledby="lightroom">
+    <span class="kicker">Lightroom Classic</span>
+    <h2 id="lightroom">Plays well with your catalog</h2>
+    <div class="split">
+      <figure class="shot">
+        <img src="/images/stampla-publisher.svg" alt="Diagram: Lightroom Classic collections published into a plain, chronologically named folder tree" loading="lazy" width="640" height="360">
+        <figcaption>The publish plugin mirrors your catalog into plain folders.</figcaption>
+      </figure>
+      <div class="prose">
+        <p>{{ .Params.lrc_blurb | markdownify }}</p>
+        <p class="aside"><a href="https://github.com/stampla/stampla-publisher">stampla-publisher on GitHub</a></p>
+      </div>
+    </div>
   </section>
 
   <section aria-labelledby="properties">
@@ -23,19 +61,6 @@
     </div>
   </section>
 
-  <section aria-labelledby="how">
-    <span class="kicker">On arrival</span>
-    <h2 id="how">A memory card becomes an archive</h2>
-    <div class="snippet" role="img" aria-label="Example: camera filenames renamed to their archive identities">
-      <pre class="example-rows"><code><span class="prompt">$</span> stampla import /Volumes/CARD --apply
-  DSC_0001.NEF  <span class="arr">→</span>  Photos/2026/2026-07/<span class="new">20260703_150727_9b677b64</span>.nef
-  DSC_0001.xmp  <span class="arr">→</span>  Photos/2026/2026-07/<span class="new">20260703_150727_9b677b64</span>.xmp
-
-card fully accounted for: 1 group imported and verified — safe to format</code></pre>
-    </div>
-    <p class="aside">{{ .Params.how_aside | markdownify }}</p>
-  </section>
-
   <section aria-labelledby="safety">
     <span class="kicker">Safety model</span>
     <h2 id="safety">Nothing changes until you say so</h2>
@@ -44,25 +69,17 @@ card fully accounted for: 1 group imported and verified — safe to format</code
     </div>
   </section>
 
-  <section aria-labelledby="install">
-    <span class="kicker">Get started</span>
-    <h2 id="install">Install</h2>
-    <div class="snippet"><pre><code><span class="prompt">$</span> pip install stampla</code></pre></div>
-    <p class="aside">{{ .Params.install_aside | markdownify }}</p>
-  </section>
+  <section aria-labelledby="advanced">
+    <span class="kicker">For advanced users</span>
+    <h2 id="advanced">The same engine, from the terminal</h2>
+    <div class="snippet" role="img" aria-label="Example: importing a card from the command line, ending in the safe-to-format verdict">
+      <pre class="example-rows"><code><span class="prompt">$</span> stampla import /Volumes/CARD --apply
+  DSC_0001.NEF  <span class="arr">→</span>  Photos/2026/2026-07/<span class="new">20260703_150727_9b677b64</span>.nef
+  DSC_0001.xmp  <span class="arr">→</span>  Photos/2026/2026-07/<span class="new">20260703_150727_9b677b64</span>.xmp
 
-  <section aria-labelledby="toolset">
-    <span class="kicker">The toolset</span>
-    <h2 id="toolset">One archive, three tools</h2>
-    <div class="cards">
-      {{ range .Params.tools }}
-      <div class="card">
-        <h3><code>{{ .name }}</code></h3>
-        <p>{{ .body }}</p>
-        <a class="more" href="{{ .url }}">{{ .link_label }}</a>
-      </div>
-      {{ end }}
+card fully accounted for: 1 group imported and verified — safe to format</code></pre>
     </div>
+    <p class="aside">{{ .Params.advanced_aside | markdownify }}</p>
   </section>
 
 </div>

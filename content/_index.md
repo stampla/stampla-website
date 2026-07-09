@@ -1,21 +1,48 @@
 ---
 title: Stampla
 description: >-
-  Deterministic, verifiable naming for photo and video archives — every
-  file renamed to its capture time plus a content-hash slice.
-tagline: Deterministic, verifiable naming for photo and video archives.
+  A complete toolset for photo and video archives: a desktop app, a
+  Lightroom Classic plugin and an automation-friendly engine — built
+  around verifiable, chronological file naming.
+tagline: Your photo archive, verifiable for decades.
 lede: >-
-  `stampla` renames every photo and video to an identity derived
-  **purely from the file itself** — the capture time plus a slice of the
-  content hash. No rolling counters, no guesswork, nothing to keep in a
-  database.
-how_aside: >-
-  Import copies — the card is never written to. Every copy is re-hashed
-  at its destination, and exit code 0 certifies the whole card is
-  accounted for. RAW masters travel with their sidecars, atomically.
-install_aside: >-
-  Python 3.11+ and [ExifTool](https://exiftool.org/) on `PATH`; no other
-  dependencies. MIT licensed.
+  Stampla names every photo and video after an identity derived
+  **purely from the file itself** — when it was captured, plus a
+  fingerprint of its content. Nothing to maintain, nothing to lose:
+  the archive can prove its own integrity at any time.
+desktop_intro: >-
+  The desktop app covers the whole workflow: import cards, check the
+  archive's health, fix names, undo anything. Every action is a preview
+  first — nothing changes until you say so.
+screenshots:
+  - src: /images/app-import.png
+    alt: >-
+      The Import view after copying a card: a green banner reads "Card
+      fully accounted for — safe to format", above the list of copied
+      files with their new names.
+    caption: >-
+      Import ends in a verdict, not a guess — every copy is re-hashed at
+      its destination before the card is cleared for formatting.
+  - src: /images/app-verify.png
+    alt: >-
+      The Verify view: findings grouped by meaning with plain-language
+      explanations — a date disagreement shown with the old time in red
+      and the corrected time in green.
+    caption: >-
+      Verify explains findings in plain language, worst first — and
+      tells corruption apart from ordinary edits.
+desktop_features:
+  - Safe by default — previews everywhere, one Apply, journaled changes
+    with one-click Undo, and Resume for interrupted runs.
+  - Built for real archives — live progress with a Stop button, tested
+    against hundreds of thousands of files.
+  - Nothing hidden — every action can show the exact terminal command
+    it stands for.
+lrc_blurb: >-
+  Shooting through Lightroom Classic? The publish plugin keeps a plain
+  folder tree in step with your catalog — and the archive tools respect
+  what Lightroom manages, handing renames to it instead of breaking
+  its links.
 properties:
   - title: Chronological by construction
     body: >-
@@ -28,32 +55,18 @@ properties:
       edits, and duplicates identify themselves.
   - title: Family-safe
     body: >-
-      RAW masters travel with their XMP/PP3 sidecars and editor
-      derivatives — everything shares the master's prefix and is renamed
-      together, atomically.
-tools:
-  - name: stampla
-    body: >-
-      The command-line tool and engine: import, verify, rename, organize —
-      journaled, resumable, undoable.
-    url: https://github.com/stampla/stampla
-    link_label: GitHub · also on PyPI
-  - name: stampla-desktop
-    body: >-
-      The desktop app: the same engine with live progress, plain-language
-      findings and one-click undo — and every action shows its terminal
-      equivalent.
-    url: https://github.com/stampla/stampla-desktop
-    link_label: GitHub
-  - name: stampla-publisher
-    body: >-
-      Lightroom Classic publish plugin: publish photos and videos into a
-      plain folder tree that mirrors the archive.
-    url: https://github.com/stampla/stampla-publisher
-    link_label: GitHub
+      RAW files travel with their sidecars and edits — everything shares
+      the master's name and is renamed together, atomically.
+advanced_aside: >-
+  The engine is a dependency-free Python package —
+  [`stampla` on PyPI](https://pypi.org/project/stampla/)
+  (Python 3.11+, [ExifTool](https://exiftool.org/) on `PATH`). `--json`
+  and `--json-stream` make every command scriptable; the
+  [command guide](https://github.com/stampla/stampla/blob/main/docs/commands.md)
+  has the details.
 ---
 
-Every command is a dry run unless explicitly applied. Applies are
+Every tool is a dry run unless explicitly applied. Applies are
 validated as a whole before anything is touched, journaled before the
 first change, applied atomically per file family, resumable after an
 interruption and revertable afterwards — undo re-verifies content
