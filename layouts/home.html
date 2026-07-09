@@ -1,0 +1,69 @@
+{{ define "main" }}
+<div class="wrap">
+
+  <section class="hero">
+    <h1>{{ .Params.tagline }}</h1>
+    <p class="lede">{{ .Params.lede | markdownify }}</p>
+    <figure class="diagram" role="img" aria-label="Example archive filename: a capture timestamp, then a slice of the content hash">
+      <div class="name"><span class="t">20260703_150727</span><span class="x">_</span><span class="h">9b677b64</span><span class="x">.nef</span></div>
+      <div class="legend"><span class="t">capture time</span><span class="h">content hash</span></div>
+    </figure>
+  </section>
+
+  <section aria-labelledby="properties">
+    <span class="kicker">What the name buys</span>
+    <h2 id="properties" class="visually-hidden">What the name buys</h2>
+    <div class="cards">
+      {{ range .Params.properties }}
+      <div class="card">
+        <h3>{{ .title }}</h3>
+        <p>{{ .body | markdownify }}</p>
+      </div>
+      {{ end }}
+    </div>
+  </section>
+
+  <section aria-labelledby="how">
+    <span class="kicker">On arrival</span>
+    <h2 id="how">A memory card becomes an archive</h2>
+    <div class="snippet" role="img" aria-label="Example: camera filenames renamed to their archive identities">
+      <pre class="example-rows"><code><span class="prompt">$</span> stampla import /Volumes/CARD --apply
+  DSC_0001.NEF  <span class="arr">→</span>  Photos/2026/2026-07/<span class="new">20260703_150727_9b677b64</span>.nef
+  DSC_0001.xmp  <span class="arr">→</span>  Photos/2026/2026-07/<span class="new">20260703_150727_9b677b64</span>.xmp
+
+card fully accounted for: 1 group imported and verified — safe to format</code></pre>
+    </div>
+    <p class="aside">{{ .Params.how_aside | markdownify }}</p>
+  </section>
+
+  <section aria-labelledby="safety">
+    <span class="kicker">Safety model</span>
+    <h2 id="safety">Nothing changes until you say so</h2>
+    <div class="prose">
+      {{ .Content }}
+    </div>
+  </section>
+
+  <section aria-labelledby="install">
+    <span class="kicker">Get started</span>
+    <h2 id="install">Install</h2>
+    <div class="snippet"><pre><code><span class="prompt">$</span> pip install stampla</code></pre></div>
+    <p class="aside">{{ .Params.install_aside | markdownify }}</p>
+  </section>
+
+  <section aria-labelledby="toolset">
+    <span class="kicker">The toolset</span>
+    <h2 id="toolset">One archive, three tools</h2>
+    <div class="cards">
+      {{ range .Params.tools }}
+      <div class="card">
+        <h3><code>{{ .name }}</code></h3>
+        <p>{{ .body }}</p>
+        <a class="more" href="{{ .url }}">{{ .link_label }}</a>
+      </div>
+      {{ end }}
+    </div>
+  </section>
+
+</div>
+{{ end }}
