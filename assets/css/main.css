@@ -31,7 +31,12 @@ body {
   font-size: 1.0625rem;
   line-height: 1.6;
   -webkit-text-size-adjust: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
+
+main { flex: 1; }
 
 .skip {
   position: absolute;
