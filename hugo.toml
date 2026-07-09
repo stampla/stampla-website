@@ -1,3 +1,8 @@
-baseURL = 'https://example.org/'
-locale = 'en-us'
-title = 'My New Hugo Project'
+baseURL = 'https://stampla.org/'
+languageCode = 'en'
+title = 'Stampla'
+timeZone = 'Europe/Warsaw'
+enableRobotsTXT = true
+
+[minify]
+  minifyOutput = true
