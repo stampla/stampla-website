@@ -123,19 +123,24 @@ code { font-size: 0.9em; }
   font-family: var(--mono);
   font-size: clamp(1rem, 3vw, 1.45rem);
   white-space: nowrap;
+  padding-bottom: 2.1em;  /* room for the labels below the underlines */
 }
-.diagram .t { color: var(--amber); border-bottom: 2px solid var(--amber); padding-bottom: 0.35rem; }
-.diagram .h { color: var(--ok); border-bottom: 2px solid var(--ok); padding-bottom: 0.35rem; }
+.diagram .seg { position: relative; border-bottom: 2px solid; padding-bottom: 0.35rem; }
+.diagram .t { color: var(--amber); border-color: var(--amber); }
+.diagram .h { color: var(--ok); border-color: var(--ok); }
 .diagram .x { color: var(--faint); }
-.diagram .legend {
-  display: flex;
-  gap: 2.5rem;
-  margin-top: 0.6rem;
-  font-size: 0.8rem;
-  font-family: var(--mono);
+.diagram .lbl {
+  /* centered under its own segment, out of layout: alignment cannot drift */
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0.65rem;
+  font-size: 0.72em;
+  white-space: nowrap;
+  border: 0;
+  padding: 0;
 }
-.diagram .legend .t { border: 0; padding: 0; }
-.diagram .legend .h { border: 0; padding: 0; }
 
 /* sections */
 section { padding: clamp(2rem, 5vw, 3.25rem) 0; }

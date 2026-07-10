@@ -53,10 +53,10 @@ properties:
       The name is reproducible from the file, so the whole archive can be
       re-checked at any time: corruption is told apart from legitimate
       edits, and duplicates identify themselves.
-  - title: Family-safe
+  - title: Groups stay whole
     body: >-
-      RAW files travel with their sidecars and edits — everything shares
-      the master's name and is renamed together, atomically.
+      A RAW file, its sidecars and its edits form one group — everything
+      shares the master's name and is renamed together, atomically.
 advanced_aside: >-
   The engine is a dependency-free Python package —
   [`stampla` on PyPI](https://pypi.org/project/stampla/)

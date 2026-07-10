@@ -5,10 +5,23 @@
     <h1>{{ .Params.tagline }}</h1>
     <p class="lede">{{ .Params.lede | markdownify }}</p>
     <figure class="diagram" role="img" aria-label="Example archive filename: a capture timestamp, then a fingerprint of the content">
-      <div class="name"><span class="t">20260703_150727</span><span class="x">_</span><span class="h">9b677b64</span><span class="x">.nef</span></div>
-      <div class="legend"><span class="t">capture time</span><span class="h">content fingerprint</span></div>
+      <div class="name"><span class="seg t">20260703_150727<span class="lbl">capture time</span></span><span class="x">_</span><span class="seg h">9b677b64<span class="lbl">fingerprint</span></span><span class="x">.nef</span></div>
     </figure>
   </section>
+
+  <section aria-labelledby="properties">
+    <span class="kicker">What the name buys</span>
+    <h2 id="properties" class="visually-hidden">What the name buys</h2>
+    <div class="cards">
+      {{ range .Params.properties }}
+      <div class="card">
+        <h3>{{ .title }}</h3>
+        <p>{{ .body | markdownify }}</p>
+      </div>
+      {{ end }}
+    </div>
+  </section>
+
 
   <section aria-labelledby="desktop">
     <span class="kicker">The desktop app</span>
@@ -45,19 +58,6 @@
         <p>{{ .Params.lrc_blurb | markdownify }}</p>
         <p class="aside"><a href="https://github.com/stampla/stampla-publisher">stampla-publisher on GitHub</a></p>
       </div>
-    </div>
-  </section>
-
-  <section aria-labelledby="properties">
-    <span class="kicker">What the name buys</span>
-    <h2 id="properties" class="visually-hidden">What the name buys</h2>
-    <div class="cards">
-      {{ range .Params.properties }}
-      <div class="card">
-        <h3>{{ .title }}</h3>
-        <p>{{ .body | markdownify }}</p>
-      </div>
-      {{ end }}
     </div>
   </section>
 
