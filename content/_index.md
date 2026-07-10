@@ -31,6 +31,14 @@ screenshots:
     caption: >-
       Verify explains findings in plain language, worst first — and
       tells corruption apart from ordinary edits.
+  - src: /images/app-relocate.png
+    alt: >-
+      The Relocate view: two files planned to move, each shown as its
+      current folder and the folder its name says it belongs in.
+    caption: >-
+      Names carry their own filing: Relocate puts files back where
+      their name says they belong — and hands Lightroom-managed
+      folders to Lightroom.
 desktop_features:
   - Safe by default — previews everywhere, one Apply, journaled changes
     with one-click Undo, and Resume for interrupted runs.
@@ -38,6 +46,8 @@ desktop_features:
     against hundreds of thousands of files.
   - Nothing hidden — every action can show the exact terminal command
     it stands for.
+  - Grows with the archive — file event shoots into their own folders,
+    or change the naming scheme with a guided, verifiable migration.
 lrc_blurb: >-
   Shooting through Lightroom Classic? The publish plugin keeps a plain
   folder tree in step with your catalog — and the archive tools respect
