@@ -68,7 +68,7 @@ advanced_aside: >-
 
 Every tool is a dry run unless explicitly applied. Applies are
 validated as a whole before anything is touched, journaled before the
-first change, applied atomically per file family, resumable after an
+first change, applied atomically per file group, resumable after an
 interruption and revertable afterwards — undo re-verifies content
 before deleting anything. A file whose capture time cannot be resolved
 is reported, never renamed. Nothing is ever overwritten.
