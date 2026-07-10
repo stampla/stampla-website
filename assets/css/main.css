@@ -187,6 +187,21 @@ h2 {
 .snippet .new { color: var(--amber); }
 .aside { color: var(--faint); font-size: 0.9rem; margin-top: 0.8rem; }
 
+.download-row { margin-top: 1.6rem; }
+.btn {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  background: var(--amber);
+  color: var(--amber-ink);
+  font-weight: 650;
+  padding: 0.65rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.btn:hover { background: color-mix(in srgb, var(--amber) 85%, white); text-decoration: none; }
+.btn-sub { font-weight: 500; font-size: 0.85em; opacity: 0.75; }
+
 .example-rows { display: grid; gap: 0.15rem; }
 
 /* prose (docs and body copy) */
