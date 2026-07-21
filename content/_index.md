@@ -6,10 +6,10 @@ description: >-
   around verifiable, chronological file naming.
 tagline: Your photo archive, verifiable for decades.
 lede: >-
-  Stampla names every photo and video after an identity derived
-  **purely from the file itself** — when it was captured, plus a
-  fingerprint of its content. Nothing to maintain, nothing to lose:
-  the archive can prove its own integrity at any time.
+  Stampla stamps every photo and video with its own identity: when it
+  was captured, and what it contains — a name **derived purely from the
+  file itself**. Nothing to maintain, nothing to lose: the archive can
+  prove its own integrity at any time.
 desktop_intro: >-
   The desktop app covers the whole workflow: import cards, check the
   archive's health, fix names, undo anything. Every action is a preview
@@ -54,7 +54,7 @@ lrc_blurb: >-
   what Lightroom manages, handing renames to it instead of breaking
   its links.
 properties:
-  - title: Chronological by construction
+  - title: Everything on one timeline
     body: >-
       Sorting by name is sorting by capture time — across every camera,
       phone and scanner. `IMG_0001 (2).jpg` never happens again.
