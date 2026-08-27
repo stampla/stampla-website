@@ -1,0 +1,18 @@
+Copyright (c) 2026 Jakub Stefanski. All rights reserved.
+
+This repository holds the source of the stampla.org website: its
+templates, stylesheet, diagrams and prose. It is public so that the site
+can be read and corrected, not so that it can be redeployed elsewhere.
+No license is granted to reuse the design or the text.
+
+Two things in this repository are governed elsewhere:
+
+  * Stampla itself is free software under the MIT License. Its source is
+    at https://github.com/stampla/stampla.
+
+  * The Stampla name and mark are not covered by any license here and
+    may not be used to identify a modified version of the software or an
+    unaffiliated site.
+
+Corrections and additions are welcome as pull requests, and are accepted
+on the understanding that they are contributed under these same terms.
