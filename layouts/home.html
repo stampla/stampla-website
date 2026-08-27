@@ -30,7 +30,7 @@
     <div class="shots">
       {{ range .Params.screenshots }}
       <figure class="shot">
-        <img src="{{ .src }}" alt="{{ .alt }}" loading="lazy" width="1180" height="620">
+        <img src="{{ .src }}" alt="{{ .alt }}" loading="lazy" width="{{ .width | default 1180 }}" height="{{ .height | default 620 }}">
         <figcaption>{{ .caption }}</figcaption>
       </figure>
       {{ end }}
@@ -41,12 +41,18 @@
       {{ end }}
     </ul>
     <p class="download-row">
-      <a class="btn" href="https://github.com/stampla/stampla-desktop/releases/latest">Download for Mac<span class="btn-sub">Apple Silicon</span></a>
+      <a class="btn" href="{{ site.Params.desktopReleasesURL }}">Download for Mac<span class="btn-sub">Apple Silicon</span></a>
     </p>
+    {{ if not site.Params.signing.macos }}
     <p class="aside">
-      Free and open source — also on
-      <a href="https://pypi.org/project/stampla-desktop/">PyPI</a> for any platform,
-      <a href="https://github.com/stampla/stampla-desktop">source on GitHub</a>.
+      First launch: macOS asks you to approve the app in
+      System&nbsp;Settings&nbsp;→&nbsp;Privacy&nbsp;&amp;&nbsp;Security — the
+      build is not notarized yet.
+    </p>
+    {{ end }}
+    <p class="aside">
+      Free and open source —
+      <a href="{{ site.Params.desktopRepoURL }}">source on GitHub</a>.
     </p>
   </section>
 
@@ -54,7 +60,8 @@
     <span class="kicker">Lightroom Classic</span>
     <h2 id="lightroom">Plays well with your catalog</h2>
     <div class="split">
-      <figure class="lrc-diagram" role="img" aria-label="Diagram: Lightroom Classic collections published into a plain, chronologically named folder tree">
+      <figure class="lrc-diagram">
+        <div class="panes" role="img" aria-label="Diagram: Lightroom Classic collections published into a plain, chronologically named folder tree">
         <div class="pane">
           <p class="pane-title">Lightroom Classic</p>
           <p>▸ Collections</p>
@@ -71,6 +78,7 @@
           <p class="indent3 accent small">20260703_150727_9b677b64_nef.jpg</p>
           <p class="indent3 dim small">20260703_151204_2af18c05_nef.jpg</p>
           <p class="dim spaced small">plain files — nothing needed to read them</p>
+        </div>
         </div>
         <figcaption>The publish plugin mirrors your catalog into plain folders.</figcaption>
       </figure>
@@ -92,10 +100,10 @@
   <section aria-labelledby="advanced">
     <span class="kicker">For advanced users</span>
     <h2 id="advanced">The same engine, from the terminal</h2>
-    <div class="snippet" role="img" aria-label="Example: importing a card from the command line, ending in the safe-to-format verdict">
-      <pre class="example-rows"><code><span class="prompt">$</span> stampla import /Volumes/CARD --apply
-  DSC_0001.NEF  <span class="arr">→</span>  Photos/2026/2026-07/<span class="new">20260703_150727_9b677b64</span>.nef
-  DSC_0001.xmp  <span class="arr">→</span>  Photos/2026/2026-07/<span class="new">20260703_150727_9b677b64</span>.xmp
+    <div class="snippet">
+      <pre class="example-rows"><code><span class="prompt" aria-hidden="true">$</span> stampla import /Volumes/CARD --apply
+  DSC_0001.NEF  <span class="arr" aria-hidden="true">→</span>  Photos/2026/2026-07/<span class="new">20260703_150727_9b677b64</span>.nef
+  DSC_0001.xmp  <span class="arr" aria-hidden="true">→</span>  Photos/2026/2026-07/<span class="new">20260703_150727_9b677b64</span>.xmp
 
 card fully accounted for: 1 group imported and verified — safe to format</code></pre>
     </div>

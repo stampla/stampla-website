@@ -8,7 +8,7 @@
   --line: #2e323c;
   --text: #e9e7e2;
   --muted: #9a9da6;
-  --faint: #7a7d86;
+  --faint: #8a8d96;
   --amber: #e8a33d;
   --amber-ink: #241a08;
   --ok: #63b984;
@@ -207,6 +207,8 @@ h2 {
 /* prose (docs and body copy) */
 .prose { max-width: var(--measure); }
 .prose p + p { margin-top: 1rem; }
+.page-body { margin-top: 1.2rem; }
+.error-page .prose { margin-top: 1rem; }
 .prose ul { margin: 1rem 0 1rem 1.25rem; }
 .prose li + li { margin-top: 0.5rem; }
 .prose h2 { margin-top: 2.2rem; }
@@ -238,13 +240,15 @@ h2 {
   border: 1px solid var(--line);
   border-radius: 10px;
   padding: 1.4rem;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  line-height: 1.9;
+}
+.lrc-diagram .panes {
   display: grid;
   grid-template-columns: 1fr;   /* panes stack: names always have full width */
   gap: 0.6rem;
   justify-items: stretch;
-  font-family: var(--mono);
-  font-size: 0.85rem;
-  line-height: 1.9;
 }
 .lrc-diagram .pane {
   background: var(--panel-2);
@@ -270,11 +274,10 @@ h2 {
   transform: rotate(90deg);
 }
 .lrc-diagram figcaption {
-  grid-column: 1 / -1;
   color: var(--faint);
   font-family: var(--sans);
   font-size: 0.88rem;
-  margin-top: 0.4rem;
+  margin-top: 0.6rem;
 }
 
 

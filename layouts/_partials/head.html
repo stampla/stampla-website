@@ -6,6 +6,13 @@
 {{ $description := .Description | default site.Params.description }}
 <meta name="description" content="{{ $description }}">
 <link rel="canonical" href="{{ .Permalink }}">
+{{- /* Only main deploys production; every other Pages build is a preview
+       and must stay out of search results. An empty branch is a local or
+       CI build, not a preview - see layouts/robots.txt. */ -}}
+{{- $branch := getenv "CF_PAGES_BRANCH" }}
+{{- if or (and (ne $branch "") (ne $branch "main")) .Params.noindex }}
+<meta name="robots" content="noindex, nofollow">
+{{- end }}
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#16181d">
@@ -14,6 +21,7 @@
 <meta property="og:description" content="{{ $description }}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ .Permalink }}">
+{{ partial "schema.html" . }}
 {{ with resources.Get "css/main.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
 {{ end }}

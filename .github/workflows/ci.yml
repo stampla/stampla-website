@@ -16,11 +16,38 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7.0.0
-      - name: Install Hugo
-        uses: peaceiris/actions-hugo@75d2e84710de30f6ff7268e08f310b60ef14033f # v3.0.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      # The version comes from .hugo-version so CI, a local build, and the
+      # Pages build image cannot drift apart. Changing Hugo is a one-file
+      # change (plus the HUGO_VERSION variables in stampla-terraform, which
+      # carry a pointer back to that file).
+      - id: hugo-version
+        run: echo "version=$(cat .hugo-version)" >> "$GITHUB_OUTPUT"
+
+      - uses: peaceiris/actions-hugo@75d2e84710de30f6ff7268e08f310b60ef14033f # v3.0.0
         with:
-          hugo-version: "0.164.0"
+          hugo-version: ${{ steps.hugo-version.outputs.version }}
           extended: true
+
+      - name: Hugo matches the pinned version
+        run: scripts/check-hugo-version.sh
+
       - name: Build
-        run: hugo --gc --minify --printPathWarnings
+        run: hugo --gc --minify --printPathWarnings --cleanDestinationDir
+
+      # --root-dir makes root-relative links checkable against the built
+      # site; --index-files lets directory links resolve to their pages.
+      # github.com/stampla stays excluded until the org repos flip public;
+      # remove that exclusion afterwards (BACKLOG).
+      - name: Link check
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
+        with:
+          args: >-
+            --no-progress --include-fragments
+            --root-dir "$GITHUB_WORKSPACE/public"
+            --index-files index.html
+            --exclude '^https://stampla\.org'
+            --exclude '^https://github\.com/stampla'
+            public
+          fail: true

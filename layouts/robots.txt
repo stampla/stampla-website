@@ -1,0 +1,14 @@
+{{- /* The same test head.html uses for the noindex meta, written the same
+       way ON PURPOSE: an EMPTY branch is not a preview. A local build and
+       the CI build both have no CF_PAGES_BRANCH, and a rule that treated
+       "not main" as "preview" would make every one of them emit
+       `Disallow: /` - which is harmless in a local build and catastrophic
+       the first time it reaches production, because a robots.txt that
+       forbids everything deindexes the whole site silently. Two definitions
+       of "is this the published site" would be one too many. */ -}}
+{{- $branch := getenv "CF_PAGES_BRANCH" -}}
+{{- $isPreview := and (ne $branch "") (ne $branch "main") -}}
+User-agent: *
+{{ if $isPreview }}Disallow: /{{ else }}Allow: /{{ end }}
+
+Sitemap: {{ absURL "sitemap.xml" }}

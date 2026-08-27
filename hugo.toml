@@ -1,5 +1,5 @@
 baseURL = 'https://stampla.org/'
-languageCode = 'en'
+locale = 'en'
 title = 'Stampla'
 timeZone = 'Europe/Warsaw'
 enableRobotsTXT = true
@@ -8,5 +8,34 @@ disableKinds = ['taxonomy', 'term', 'rss']
 [params]
   description = 'Deterministic, verifiable naming for photo and video archives.'
 
+  # Every outbound project link goes through these, so a rename or re-org
+  # is one config edit rather than a grep-hunt across templates.
+  orgURL = 'https://github.com/stampla'
+  repoURL = 'https://github.com/stampla/stampla'
+  desktopRepoURL = 'https://github.com/stampla/stampla-desktop'
+  desktopReleasesURL = 'https://github.com/stampla/stampla-desktop/releases/latest'
+  publisherRepoURL = 'https://github.com/stampla/stampla-publisher'
+  pypiURL = 'https://pypi.org/project/stampla/'
+  licenseURL = 'https://github.com/stampla/stampla/blob/main/LICENSE'
+
+  # Whether the published desktop builds are code-signed. Flip when a
+  # Developer ID lands: the download aside's first-launch note is written
+  # from this, and leaving it false after notarization would tell readers
+  # to expect a dialog that no longer appears.
+  [params.signing]
+    macos = false
+
+# Hugo refuses to read the environment unless a variable is named here.
+# CF_PAGES_BRANCH marks preview deployments noindex.
+[security]
+  [security.funcs]
+    getenv = ['^HUGO_', '^CI$', '^CF_PAGES_BRANCH$']
+
 [minify]
   minifyOutput = true
+  [minify.tdewolff.html]
+    keepQuotes = true
+
+[sitemap]
+  changefreq = 'weekly'
+  priority = 0.5

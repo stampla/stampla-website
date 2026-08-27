@@ -1,0 +1,22 @@
+{{- if .IsHome -}}
+{{- $website := dict
+  "@context" "https://schema.org"
+  "@type" "WebSite"
+  "name" site.Title
+  "url" site.BaseURL
+  "description" site.Params.description
+-}}
+{{- $app := dict
+  "@context" "https://schema.org"
+  "@type" "SoftwareApplication"
+  "name" site.Title
+  "applicationCategory" "MultimediaApplication"
+  "operatingSystem" "macOS"
+  "url" site.BaseURL
+  "downloadUrl" site.Params.desktopReleasesURL
+  "license" site.Params.licenseURL
+  "offers" (dict "@type" "Offer" "price" "0" "priceCurrency" "USD")
+-}}
+<script type="application/ld+json">{{ $website | jsonify (dict "noHTMLEscape" true) | safeJS }}</script>
+<script type="application/ld+json">{{ $app | jsonify (dict "noHTMLEscape" true) | safeJS }}</script>
+{{- end -}}
