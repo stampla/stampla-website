@@ -7,8 +7,9 @@ No license is granted to reuse the design or the text.
 
 Two things in this repository are governed elsewhere:
 
-  * Stampla itself is free software under the MIT License. Its source is
-    at https://github.com/stampla/stampla.
+  * Stampla itself is free software under the GNU General Public
+    License, version 3 or later. Its source is at
+    https://github.com/stampla/stampla.
 
   * The Stampla name and mark are not covered by any license here and
     may not be used to identify a modified version of the software or an
