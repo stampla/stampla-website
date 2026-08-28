@@ -20,7 +20,7 @@ jobs:
 
       # The version comes from .hugo-version so CI, a local build, and the
       # Pages build image cannot drift apart. Changing Hugo is a one-file
-      # change (plus the HUGO_VERSION variables in stampla-terraform, which
+      # change (plus the HUGO_VERSION variables in stampla-infra, which
       # carry a pointer back to that file).
       - id: hugo-version
         run: echo "version=$(cat .hugo-version)" >> "$GITHUB_OUTPUT"
