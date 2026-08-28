@@ -16,6 +16,7 @@ disableKinds = ['taxonomy', 'term', 'rss']
   desktopReleasesURL = 'https://github.com/stampla/stampla-desktop/releases/latest'
   publisherRepoURL = 'https://github.com/stampla/stampla-publisher'
   pypiURL = 'https://pypi.org/project/stampla/'
+  desktopPypiURL = 'https://pypi.org/project/stampla-desktop/'
   licenseURL = 'https://github.com/stampla/stampla/blob/main/LICENSE'
 
   # Whether the published desktop builds are code-signed. Flip when a

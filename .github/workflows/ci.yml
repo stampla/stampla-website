@@ -38,9 +38,8 @@ jobs:
 
       # --root-dir makes root-relative links checkable against the built
       # site; --index-files lets directory links resolve to their pages.
-      # The desktop releases URL stays excluded until the first desktop
-      # release exists (BACKLOG: desktop DMG release) — releases/latest
-      # of a repo with no releases is a 404.
+      # Root-relative links resolve against the built site; directory
+      # links resolve to their pages.
       - name: Link check
         uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
         with:
@@ -49,6 +48,5 @@ jobs:
             --root-dir "$GITHUB_WORKSPACE/public"
             --index-files index.html
             --exclude '^https://stampla\.org'
-            --exclude '^https://github\.com/stampla/stampla-desktop/releases'
             public
           fail: true
