@@ -40,7 +40,7 @@ the output with lychee.
 Cloudflare Pages builds exactly two branches. `release` is the
 published site, fast-forwarded from green `main` deliberately
 (`git push origin main:release`); `staging` builds the same preview
-without publishing, at `staging.stampla-website.pages.dev`. `main` and
+without publishing, at `staging.stampla.pages.dev`. `main` and
 every other branch build nothing. Previews are marked `noindex` and
 disallowed in robots.txt via `CF_PAGES_BRANCH`; a build with no such
 variable (local, CI) is treated as production output, never as a
