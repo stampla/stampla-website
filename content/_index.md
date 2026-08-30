@@ -72,7 +72,7 @@ advanced_aside: >-
   [`stampla` on PyPI](https://pypi.org/project/stampla/)
   (Python 3.11+, [ExifTool](https://exiftool.org/) on `PATH`). `--json`
   and `--json-stream` make every command scriptable; the
-  [command guide](https://github.com/stampla/stampla/blob/main/docs/commands.md)
+  [command guide](https://github.com/stampla/stampla-python/blob/main/docs/commands.md)
   has the details.
 ---
 
